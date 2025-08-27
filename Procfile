@@ -1,1 +1,1 @@
-web: corepack enable && corepack prepare pnpm@9.4.0 --activate && CI=1 pnpm install --frozen-lockfile --prod=false && pnpm build && pnpm preview -- --host 0.0.0.0 --port ${PORT}
+web: corepack enable && corepack prepare pnpm@9.4.0 --activate && CI=1 pnpm install --frozen-lockfile --prod=false && pnpm build && bindings=$(./bindings.sh) && pnpm exec wrangler pages dev ./build/client $bindings --ip 0.0.0.0 --port ${PORT:-80} --no-show-interactive-dev-session
