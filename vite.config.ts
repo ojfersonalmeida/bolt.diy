@@ -61,6 +61,16 @@ export default defineConfig((config) => {
       'LMSTUDIO_API_BASE_URL',
       'TOGETHER_API_BASE_URL',
     ],
+
+    // Libera o host do EasyPanel para evitar "Blocked request"
+    server: {
+      allowedHosts: [
+        //'teste-boltdiy.ira5b2.easypanel.host',
+        // Alternativa mais ampla (use só se precisar):
+         '.easypanel.host',
+      ],
+    },
+
     css: {
       preprocessorOptions: {
         scss: {
